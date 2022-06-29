@@ -54,6 +54,8 @@ ontimize:
          role-login-column: USER_
          role-name-column: ROLENAME
 server:
+   servlet:
+      context-path: /ritapop/services/rest
    port: 33333
    tomcat:
       uri-encoding: UTF-8
