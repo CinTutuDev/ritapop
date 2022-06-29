@@ -9,8 +9,9 @@ target/
 /bazel-out
 
 #DataBase
-templateDB.log
-templateDB.lck
+*DB.log
+*DB.lck
+*DB.script
 
 # dependencies
 /node_modules
