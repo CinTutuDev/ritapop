@@ -1,7 +1,8 @@
 import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService } from 'ontimize-web-ngx';
+import { AuthService, LocalStorageService, NavigationService, DialogService, OTranslateService, OTranslateModule, OTranslatePipe, OTranslateParser } from 'ontimize-web-ngx';
+import { OntimizeWebTranslateModule, OTranslateParserFactory } from 'ontimize-web-ngx/lib/config/o-modules';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -20,6 +21,8 @@ export class LoginComponent implements OnInit {
   router: Router;
 
   constructor(
+    private translate: OTranslateService,
+    protected dialogService: DialogService,
     private actRoute: ActivatedRoute,
     router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
@@ -66,6 +69,8 @@ export class LoginComponent implements OnInit {
           self.sessionExpired = false;
           self.router.navigate(['../'], { relativeTo: this.actRoute });
         }, this.handleError);
+    } else{
+      this.dialogService.error('Error:',this.translate.get("ERROR_EMPTY_USER_PASS"));
     }
   }
 
