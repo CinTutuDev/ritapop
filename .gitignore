@@ -12,6 +12,8 @@ target/
 *DB.log
 *DB.lck
 *DB.script
+*DB.properties
+
 
 # dependencies
 /node_modules
