@@ -13,7 +13,6 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  show: Boolean = true;
   loginForm: FormGroup = new FormGroup({});
   userCtrl: FormControl = new FormControl('', Validators.required);
   pwdCtrl: FormControl = new FormControl('', Validators.required);
